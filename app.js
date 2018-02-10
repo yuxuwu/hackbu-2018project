@@ -39,6 +39,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use("/", indexRoutes);
 //app.use("/projects", projectRoutes);
 
-app.listen(3000, function(){
-    console.log("Started on PORT 3000");
+var port = process.env.PORT || 8080;
+app.listen(port, function(){
+    console.log("Started on PORT " + port);
 });

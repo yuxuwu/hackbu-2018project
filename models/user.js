@@ -4,6 +4,8 @@ var mongoose = require("mongoose"),
 var user_schema = mongoose.Schema({
     username: String,
     password: String,
+    first_name: String,
+    last_name: String,
     projects: {
         id:{
             type: mongoose.Schema.Types.ObjectId,
@@ -13,9 +15,7 @@ var user_schema = mongoose.Schema({
         thumbnail: String
     },
     location: String,
-    interest_groups: {
-
-    }
+    interest_groups: {}
 });
 user_schema.plugin(passportLocalMongoose);
 module.exports = mongoose.model("User", user_schema);

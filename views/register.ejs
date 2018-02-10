@@ -1,0 +1,44 @@
+<% include partials/header %>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+
+            // for HTML5 "required" attribute
+            $("select[required]").css({
+              display: "inline",
+              height: 0,
+              padding: 0,
+              width: 0
+        });
+  });
+    </script>
+    <div class="container">
+        <h1>Sign Up!</h1>
+        <form action="/register" method="POST">
+          <div class="row">
+            <div class="input-field active col s6">
+              <input name="first_name" id="first_name" type="text">
+              <label class="active" for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="last_name" id="last_name" type="text">
+              <label class="active" for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input name="username" id="username" type="text">
+              <label class="active" for="username">Username</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input name="password" id="password" type="password">
+              <label class="active" for="password">Password</label>
+            </div>
+          </div>
+          <button class="waves-effect waves-light btn">Login</button>
+          </div>
+        </form>
+    </div>
+<% include partials/footer %>
