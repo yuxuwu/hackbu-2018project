@@ -1,41 +1,21 @@
 /*
-	Identity by HTML5 UP
+	Miniport by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Basic */
+/* Button */
 
-	body {
-		background-image: url("../../images/bg.jpg");
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: bottom center;
-		background-attachment: fixed;
+	input[type="button"],
+	input[type="submit"],
+	input[type="reset"],
+	button,
+	.button {
+		background-image: url("images/ie/grad0-20.svg");
 	}
-
-		body:after {
-			display: none;
-		}
 
 /* List */
 
-	ul.icons li a:before {
-		color: #c8cccf;
-	}
-
-	ul.icons li a:hover:before {
-		color: #ff7496;
-	}
-
-/* Wrapper */
-
-	#wrapper {
-		text-align: center;
-	}
-
-/* Main */
-
-	#main {
-		display: inline-block;
+	ul.social li a:before {
+		background-image: url("images/ie/grad0-20.svg");
 	}
