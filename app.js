@@ -10,13 +10,14 @@ var Project = require("./models/project"),
     User = require("./models/user");
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://127.0.0.1:27017/hackbu");
+var seedDB = require("./seeds");
+//seed database
+seedDB();
 
-//TODO:Requiring routes
-/*
-    userRoutes = require(),
-*/
+//Requiring routes
 var projectRoutes = require("./routes/projects"),
-    indexRoutes = require("./routes/index");
+    indexRoutes = require("./routes/index"),
+    profileRoutes = require("./routes/profile");
 
 //Middleware 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -41,9 +42,10 @@ app.use(function(req, res, next){
     next();
 });
 
-//TODO:Routes
+//Routes
 app.use("/", indexRoutes);
 app.use("/projects", projectRoutes);
+app.use("/profiles", profileRoutes);
 
 var port = process.env.PORT || 8080;
 app.listen(port, function(){

@@ -11,9 +11,11 @@ router.get("/:userID", function(req, res){
                          .populate("projects_pledged")
                          .exec(function(err, foundUser){
                             if(err){
-                                conosle.log(err);
+                                console.log(err);
                             } else {
                                 res.render("profiles/show", {user: foundUser});
                             }
                          });
 });
+
+module.exports = router;

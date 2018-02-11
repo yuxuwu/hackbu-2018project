@@ -1,7 +1,7 @@
 <% include ../partials/header %>
     <% include ../partials/navbar %>
     <div class="row">
-        <div class="s3">
+        <div class="col s3">
             <div id="profiles" class="card">
                 <!--Profile Picture-->
                 <div class="card-image">
@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="s9">
+        <div class="col s9">
             <!--Projects Created-->
             <div class="row">
                 <h2>Projects Created</h2>
@@ -39,7 +39,7 @@
                               </div>
                           </div>
                       </div>
-                    <% } %>
+                    <% }); %>
                 </div>
             </div>
             <!--Projects Pledged-->
@@ -60,18 +60,18 @@
                               </div>
                           </div>
                       </div>
-                    <% } %>
+                    <% }); %>
                 </div>
             </div>
             <!--Groups-->
             <div class="row">
                 <h2>Groups and Interests</h2>
-                <% user.groups.forEach(group){ %>
+                <% user.groups.forEach(function(group){ %>
                       <div class="chip">
                         <img src="<%=group.image%>" alt="<%=group.name%>">
                         <%=group.name%>
                       </div>
-                <% } %>
+                <% }); %>
             </div>
         </div>
     </div>

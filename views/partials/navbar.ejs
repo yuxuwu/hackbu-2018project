@@ -6,7 +6,7 @@
                 <li><a href="/register">Register</a></li>
                 <li><a href="/login">Login</a></li>
             <%} else { %>
-                <li><a href="#"><%=currentUser.username%></a></li>
+                <li><a href="/profiles/<%=currentUser._id%>"><%=currentUser.username%></a></li>
                 <li><a href="/logout">Logout</a></li>
             <% } %>
         </ul>

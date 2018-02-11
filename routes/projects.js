@@ -15,6 +15,7 @@ router.get("/", function(req, res){
     });
 });
 
+/*
 //CREATE -- add a new project to db
 router.post("/", middleware.isLoggedIn, function(req, res){
     //get data from form
@@ -33,5 +34,6 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 
     //create new project
 });
+*/
 
 module.exports = router;
