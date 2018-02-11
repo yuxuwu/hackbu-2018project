@@ -10,7 +10,7 @@ var project_schema = new mongoose.Schema({
     },
     amount_required: Number, //cents
     amount_pledged: Number, //cents
-    community: {type: mongoose.Schema.Types.ObjectId, ref: "Group"},
+    community: String,
     comments: [{type: mongoose.Schema.Types.ObjectId, ref: "Comment"}],
     location: {
         type: [Number], //[<Longitude>, <Latitude>]

@@ -7,7 +7,9 @@
             <div id="profiles" class="card">
                 <!--Profile Picture-->
                 <div class="card-image">
-                    <img src="<%=user.profile_image%>">
+                    <%if(user.profile_image){%>
+                        <img src="<%=user.profile_image%>">
+                    <%}%>
                     <span class="card-title"><%=user.first_name%> <%=user.last_name%></span>
                     <% if(currentUser && user._id.equals(currentUser.id)){%>
                         <!--Edit button-->

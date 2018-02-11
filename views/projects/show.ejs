@@ -1,0 +1,64 @@
+<%include ../partials/header%>
+    <%include ../partials/navbar%>
+    <div class="container">
+        <!--Project Description-->
+        <div class="row">
+          <div class="col s12">
+            <h2 class="header"><%=project.title%></h2>
+            <div class="card horizontal z-depth-5">
+              <div class="card-image">
+                <img src="<%=project.thumbnail%>">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <p class="valign-wrapper"><%=project.description%></p>
+                  <hr>
+                  <h5>-<%=project.community%></h5>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                        <h5>Amount Pledged: $<%=project.amount_pledged%></h4>
+                        <h5>Goal: $<%=project.amount_required%></h4>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Project Money Details-->
+        <div class="row">
+            <div class="card z-depth-5">
+                <div class="card-contents">
+                    <div class="container" style="margin-right: 70px">
+                        <span>Be a pledger!</span>
+                        <div class="input-field inline">
+                            <input id="amount" type="number">
+                            <label for="amount">Amount</label>
+                        </div>
+                        <button class="waves-effect waves-light btn">Pledge an Amount!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%if(project.comments.length != 0){%>
+            <!--Comments-->
+            <div class="row">
+                <div class="col s12">
+                    <div class="card z-depth-5">
+                        <div class="card-content">
+                            <%project.comments.forEach(function(comment){ %>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <span><%=comment.text%></span>
+                                    </div>
+                                </div>
+                            <%});%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <%}%>
+    </div>
+<%include ../partials/footer%>

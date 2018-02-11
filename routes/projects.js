@@ -42,4 +42,12 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     });
 });
 
+//SHOW -- place project in front
+router.get("/:projectID/show", function(req, res){
+    var projectID = req.params.projectID;
+    Project.findById(projectID, function(err, foundProject){
+        res.render("projects/show", {project: foundProject});
+    });
+});
+
 module.exports = router;

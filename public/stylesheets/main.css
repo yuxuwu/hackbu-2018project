@@ -6,3 +6,9 @@ html{
 #logo {
   margin-left: 20px;
 }
+.card{
+    font-family: "Open Sans";
+}
+.card-title{
+    color: black;
+}

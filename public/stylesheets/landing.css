@@ -1,0 +1,42 @@
+html{
+  height: 100%;
+  font-family: 'Patua One';
+}
+
+body{
+  background: url("images/communitybackground.jpg");
+  background-size: 1400px 758px;
+}
+
+#logo {
+  margin-left: 20px;
+}
+
+#content {
+  color: green;
+  text-align: center;
+  padding-top: 3.5%;
+}
+
+hr.style-seven {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.style-seven:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+#button {
+    margin-top: 20px;
+}

@@ -17,15 +17,11 @@
                 </div>
             </div>
             <div class="row">
-                 <div class="input-field col s12">
-                    <select name="project[community]">
-                      <option value="" disabled selected>Choose your option</option>
-                    <%user.groups.forEach(function(group){%>
-                      <option value="<%=group._id%>"><%=group.name%></option>
-                    <%});%>
-                    </select>
-                    <label>Select Community</label>
-                  </div>
+                <div class="input-field active col s12">
+                    <input name="project[community]" id="community" type="text">
+                    <label class="active" for="community">Community</label>
+                </div>
+            </div>
             <div class="row">
                 <div class="input-field active col s12">
                     <textarea name="project[description]" id="description" class="materialize-textarea"></textarea>
