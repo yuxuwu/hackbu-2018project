@@ -1,22 +1,9 @@
 <% include partials/header %>
-    <script>
-        $(document).ready(function() {
-            $('select').material_select();
-
-            // for HTML5 "required" attribute
-            $("select[required]").css({
-              display: "inline",
-              height: 0,
-              padding: 0,
-              width: 0
-        });
-  });
-    </script>
     <div class="container">
         <h1>Sign Up!</h1>
         <form action="/register" method="POST">
           <div class="row">
-            <div class="input-field active col s6">
+            <div class="input-field col s6">
               <input name="first_name" id="first_name" type="text">
               <label class="active" for="first_name">First Name</label>
             </div>

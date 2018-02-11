@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+    <% include ../partials/navbar %>
+    <div class="container">
+        <h1>Create a new project...</h1> 
+        <form action="/projects" method="POST">
+            <div class="row">
+                <div class="input-field active col s12">
+                    <input name="title" id="title" type="text">
+                    <label class="active" for="title">Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field active col s12">
+                    <input name="thumbnail" id="thumbnail" type="text">
+                    <label class="active" for="thumbnail">Thumbnail</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field active col s12">
+                    <input name="description" id="description" type="text">
+                    <label class="active" for="descripton">Description</label>
+                </div>
+            </div>
+        </form>
+    </div>
+<% include ../partials/footer %>

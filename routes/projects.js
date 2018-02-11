@@ -1,20 +1,21 @@
 var router = require("express").Router();
-var middlware = require("../middlware");
+var middleware = require("../middleware");
 
 var Project = require("../models/project");
 
 //INDEX -- show all projects
 router.get("/", function(req, res){
     //Render all projects from db
-    Project.find({}, function(err, allCampground){
+    Project.find({}, function(err, allProjects){
         if(err){
             console.log(err);
         }else{
-            res.send("Hi");
+            res.render("projects/index", {projects: allProjects, currentUser: req.user});
         }
     });
 });
 
+/*
 //CREATE -- add a new project to db
 router.post("/", middleware.isLoggedIn, function(req, res){
     //get data from form
@@ -29,7 +30,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
         id: req.user._id,
         username: req.user.username
     }
-    var newCampground = {title: title, thumbnail: thumbnail, description: description, var amount_required: amount_saved, amount_saved: amount_saved};
+    var newProject = {title: title, thumbnail: thumbnail, description: description, amount_required: amount_required, amount_saved: amount_saved};
 
     //create new project
 });
+*/
+
+module.exports = router;

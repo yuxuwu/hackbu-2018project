@@ -13,10 +13,10 @@ mongoose.connect("mongodb://127.0.0.1:27017/hackbu");
 
 //TODO:Requiring routes
 /*
-var projectRoutes = require(),
     userRoutes = require(),
 */
-var indexRoutes = require("./routes/index");
+var projectRoutes = require("./routes/projects"),
+    indexRoutes = require("./routes/index");
 
 //Middleware 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -43,7 +43,7 @@ app.use(function(req, res, next){
 
 //TODO:Routes
 app.use("/", indexRoutes);
-//app.use("/projects", projectRoutes);
+app.use("/projects", projectRoutes);
 
 var port = process.env.PORT || 8080;
 app.listen(port, function(){
