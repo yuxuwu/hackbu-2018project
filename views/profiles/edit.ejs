@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+    <% include ../partials/navbar.ejs %>
+    <div class="container">
+        <h1>Edit your profile page</h1>
+        <form action="/profiles/<%=user._id%>?_method=PUT" method="POST">
+            <div class="row">
+                <div class="input-field active col s12">
+                    <input name="user[profile_image]" id="profile_image" type="text" value="<%=user.profile_image%>">
+                    <label class="active" for="profile_image">Profile Image URL</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field active col s12">
+                    <input name="user[bio]" id="bio" type="text" value="<%=user.bio%>">
+                    <label class="active" for="bio">Bio</label>
+                </div>
+            </div>
+             <div class="row">
+                <div class="input-field active col s12">
+                    <input name="user[community]" id="community" type="text" value="<%=user.community%>">
+                    <label class="active" for="community">Community</label>
+                </div>
+            </div>
+            <button class="waves-effect waves-light btn">update</a>
+        </form>
+    </div>
+<% include ../partials/footer %>

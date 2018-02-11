@@ -22,6 +22,7 @@ var projectRoutes = require("./routes/projects"),
 //Middleware 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 
 //Passport Config
