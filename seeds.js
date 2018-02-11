@@ -56,6 +56,7 @@ project_data[2] = {
 for(let i = 0; i < 3; i++){
     comment_data.push({
         text: faker.lorem.sentences(),
+        author: faker.internet.userName(),
         likes: faker.random.number(50)
     });
 }
@@ -107,10 +108,10 @@ function seedDB(){
                                                                 } else {
                                                                     console.log(">>Created a comment");
                                                                     project.comments.push(comment);
+                                                                        project.save();
                                                                 }
                                                             });
                                                         });
-                                                        project.save();
                                                     }
                                                 });
                                             }

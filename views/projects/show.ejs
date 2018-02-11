@@ -51,9 +51,12 @@
                             <%project.comments.forEach(function(comment){ %>
                                 <div class="row">
                                     <div class="col s12">
+                                        <span><b><%=comment.author%></b></span><br>
                                         <span><%=comment.text%></span>
                                     </div>
                                 </div>
+                                <button class="waves-effect waves-light btn"><i class="material-icons">thumbs_up</i>Like <%=comment.likes%></button>
+                                <hr>
                             <%});%>
                         </div>
                     </div>
