@@ -1,0 +1,19 @@
+html{
+  height: 100%;
+  font-family: 'Patua One';
+}
+
+body{
+  background: url("images/communitybackground.jpg");
+  background-size: 1400px 758px;
+}
+
+#logo {
+  margin-left: 20px;
+}
+
+#content {
+  color: black;
+  text-align: center;
+  padding-top: 10%;
+}
