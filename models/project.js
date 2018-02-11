@@ -12,6 +12,10 @@ var project_schema = new mongoose.Schema({
     amount_pledged: Number, //cents
     community: {type: mongoose.Schema.Types.ObjectId, ref: "Group"},
     comments: [{type: mongoose.Schema.Types.ObjectId, ref: "Comment"}],
+    location: {
+        type: [Number], //[<Longitude>, <Latitude>]
+        index: '2d'
+    },
     views: Number
 });
 var Project = mongoose.model("Project", project_schema);

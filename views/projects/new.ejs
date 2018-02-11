@@ -1,26 +1,60 @@
 <% include ../partials/header %>
+
     <% include ../partials/navbar %>
     <div class="container">
         <h1>Create a new project...</h1> 
         <form action="/projects" method="POST">
             <div class="row">
                 <div class="input-field active col s12">
-                    <input name="title" id="title" type="text">
+                    <input name="project[title]" id="title" type="text">
                     <label class="active" for="title">Title</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field active col s12">
-                    <input name="thumbnail" id="thumbnail" type="text">
+                    <input name="project[thumbnail]" id="thumbnail" type="text">
                     <label class="active" for="thumbnail">Thumbnail</label>
                 </div>
             </div>
             <div class="row">
+                 <div class="input-field col s12">
+                    <select name="project[community]">
+                      <option value="" disabled selected>Choose your option</option>
+                    <%user.groups.forEach(function(group){%>
+                      <option value="<%=group._id%>"><%=group.name%></option>
+                    <%});%>
+                    </select>
+                    <label>Select Community</label>
+                  </div>
+            <div class="row">
                 <div class="input-field active col s12">
-                    <input name="description" id="description" type="text">
+                    <textarea name="project[description]" id="description" class="materialize-textarea"></textarea>
                     <label class="active" for="descripton">Description</label>
                 </div>
             </div>
+            <span>Funding Required</span>
+            <p class="range-field">
+                <input name="project[amount_required]" id="amount_required" type="range" min="0" max="2500">
+            </p>
+            <div class="row">
+                <span id="location">Longitude:<br>Latitude:</span>
+            </div>
+            <button class="waves-effect waves-light btn">submit project</button>
         </form>
     </div>
+    <script>
+        var x = document.getElementById("location");
+        window.onload = getLocation;
+        function getLocation(){
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
 <% include ../partials/footer %>

@@ -29,6 +29,9 @@
             <!--Projects Created-->
             <div class="row">
                 <h2>Projects Created</h2>
+                <% if(currentUser && user._id.equals(currentUser.id)){%>
+                    <span><a href="/projects/new" class="waves-effect waves-light btn">+ New Project</a></span>
+                <% } %>
                 <div class="row-text-center" style="display: flex; flex-wrap: wrap">
                     <% user.projects_created.forEach(function(project){%>
                         <div class="col md3 s6">
@@ -70,6 +73,9 @@
             <!--Groups-->
             <div class="row">
                 <h2>Groups and Interests</h2>
+                <% if(currentUser && user._id.equals(currentUser.id)){%>
+                    <span><a href="#" class="waves-effect waves-light btn">+ New Group</a></span>
+                <% } %>
                 <% user.groups.forEach(function(group){ %>
                       <div class="chip">
                         <img src="<%=group.image%>" alt="<%=group.name%>">

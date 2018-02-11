@@ -1,7 +1,9 @@
 var router = require("express").Router();
 var middleware = require("../middleware");
+var geolocator = require("geolocator");
 
-var Project = require("../models/project");
+var Project = require("../models/project"),
+    Group = require("../models/group");
 
 //INDEX -- show all projects
 router.get("/", function(req, res){
@@ -15,25 +17,29 @@ router.get("/", function(req, res){
     });
 });
 
-/*
+router.get("/new", middleware.isLoggedIn, function(req, res){
+    res.render("projects/new", {user: req.user});
+});
+
 //CREATE -- add a new project to db
 router.post("/", middleware.isLoggedIn, function(req, res){
-    //get data from form
-    var title = req.body.title;
-    var thumbnail = req.body.thumbnail;
-    var description = req.body.description;
-    var amount_required = req.body.amount_required;
-    var amount_saved = 0;
+    var newProject = req.body.project;
+    newProject.amount_saved = 0;
+    newProject.views = 0;
 
-    // create new project
-    var author = {
+    newProject.author = {
         id: req.user._id,
         username: req.user.username
     }
-    var newProject = {title: title, thumbnail: thumbnail, description: description, amount_required: amount_required, amount_saved: amount_saved};
 
     //create new project
+    Project.create(newProject, function(err, newlyCreated){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect("/projects");
+        }
+    });
 });
-*/
 
 module.exports = router;
