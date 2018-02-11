@@ -5,15 +5,13 @@ var project_schema = new mongoose.Schema({
     thumbnail: String,
     description: String,
     author: {
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
+        id: {type: ObjectId, ref: "User"},
         username: String
     },
     amount_required: Number,
     amount_pledged: Number,
-    location: String
+    location: String,
+    comments: [{type: ObjectId, ref: "Comment"}]
 });
 var Project = mongoose.model("Project", project_schema);
 module.exports = Project;

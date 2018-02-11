@@ -1,0 +1,78 @@
+<% include ../partials/header %>
+    <% include ../partials/navbar %>
+    <div class="row">
+        <div class="s3">
+            <div id="profiles" class="card">
+                <!--Profile Picture-->
+                <div class="card-image">
+                    <img src="<%=user.profile_image%>">
+                    <span class="card-title"><%=user.first_name%> <%=user.last_name%></span>
+                    <!--Edit button-->
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <!--Profile Info: Bio, Location-->
+                <div class="card-content">
+                    <p><%=user.bio%></p>
+                    <%if(user.location){%>
+                        <br>
+                        <span><i class="fas fa-map-marker"></i>user.location</span>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+
+        <div class="s9">
+            <!--Projects Created-->
+            <div class="row">
+                <h2>Projects Created</h2>
+                <div class="row-text-center style="display: flex; flex-wrap: wrap"">
+                    <% user.projects_created.forEach(function(project){%>
+                        <div class="col md3 s6">
+                          <div class="card medium">
+                              <div class="card-image"><%=project.title%>
+                                  <img src="<%=project.thumbnail%>">
+                                      <div></div>
+                                  </img>
+                              </div>
+                              <div class="card-content">
+                                  <p><%=project.description%></p>
+                              </div>
+                          </div>
+                      </div>
+                    <% } %>
+                </div>
+            </div>
+            <!--Projects Pledged-->
+            <div class="row">
+                <h2>Projects Pledged</h2>
+                <div class="row-text-center style="display: flex; flex-wrap: wrap"">
+                    <% user.projects_pledged.forEach(function(project){%>
+                        <div class="col md3 s6">
+                          <div class="card medium">
+                              <!--Project Image and Title-->
+                              <div class="card-image">
+                                  <img src="<%=project.thumbnail%>">
+                                  <span class="card-title"><%=project.title%></span>
+                              </div>
+                              <!--Project Description-->
+                              <div class="card-content">
+                                  <p><%=project.description%></p>
+                              </div>
+                          </div>
+                      </div>
+                    <% } %>
+                </div>
+            </div>
+            <!--Groups-->
+            <div class="row">
+                <h2>Groups and Interests</h2>
+                <% user.groups.forEach(group){ %>
+                      <div class="chip">
+                        <img src="<%=group.image%>" alt="<%=group.name%>">
+                        <%=group.name%>
+                      </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+<% include ../partials/footer %>
